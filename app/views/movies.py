@@ -35,7 +35,7 @@ class MoviesView(Resource):
         with db.session.begin():
             db.session.add(new_movie)
 
-        return "Movie created", 201
+        return "Movie created", 201, {"location": f"/movie/{new_movie}"}
 
 
 @movies_ns.route("/<int:uid>")  # +
